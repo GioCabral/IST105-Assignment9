@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DNA Center - Auth</title>
+</head>
+<body>
+    <h1>Authenticate to DNA Center</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Get Token</button>
+    </form>
+
+    {% if success %}
+        <h2>Token</h2>
+        <pre>{{ token }}</pre>
+    {% endif %}
+
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+
+    <p>
+        <a href="/devices/">List Devices</a> |
+        <a href="/interfaces/">Show Interfaces</a>
+    </p>
+</body>
+</html>

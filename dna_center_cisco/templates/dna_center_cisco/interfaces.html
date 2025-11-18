@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DNA Center - Interfaces</title>
+</head>
+<body>
+    <h1>Device Interfaces</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <label>Device IP:</label>
+        <input type="text" name="ip" value="{{ ip }}">
+        <button type="submit">Show Interfaces</button>
+    </form>
+
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+
+    {% if interfaces %}
+        <h2>Interfaces for {{ ip }}</h2>
+        <table border="1" cellpadding="5">
+            <tr>
+                <th>Interface</th>
+                <th>Status</th>
+                <th>VLAN</th>
+                <th>Speed</th>
+            </tr>
+            {% for intf in interfaces %}
+                <tr>
+                    <td>{{ intf.portName }}</td>
+                    <td>{{ intf.status }}</td>
+                    <td>{{ intf.vlanId }}</td>
+                    <td>{{ intf.speed }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+    <p>
+        <a href="/auth/">Auth</a> |
+        <a href="/devices/">Devices</a>
+    </p>
+</body>
+</html>
