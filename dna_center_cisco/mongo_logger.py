@@ -2,7 +2,7 @@ from datetime import datetime
 from pymongo import MongoClient
 
 # connection string (string de conexão) – ajuste depois para a EC2 do MongoDB
-MONGO_URI = "mongodb://localhost:27017/"
+MONGO_URI = "mongodb://172.31.64.238:27017/"
 
 client = MongoClient(MONGO_URI)
 db = client["assignment9"]
