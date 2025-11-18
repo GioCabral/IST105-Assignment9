@@ -1,8 +1,8 @@
 asgiref==3.10.0
 certifi==2025.11.12
 charset-normalizer==3.4.4
-Django==5.2.8
-dnspython==2.8.0
+Django==4.2.26
+dnspython==2.7.0
 idna==3.11
 pymongo==4.15.4
 requests==2.32.5
